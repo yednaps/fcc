@@ -15,7 +15,26 @@ function sumFibs(num) {
     return sum; 
 }
 
+function sumFibs2(num) {
+    // refactored to ditch list and only loop once
+    var c = 2;
+    var p = 1;
+    var outsum = 2;
+
+    while (c <= num) {
+        var ctmp = c + p;
+        p = c;
+        c = ctmp;
+        if (c % 2 && c <= num) outsum += c;
+    }
+    return outsum; 
+}
+
 console.log(sumFibs(4));
 console.log(sumFibs(1000));
 console.log(sumFibs(4000000));
 console.log(sumFibs(1));
+console.log(sumFibs2(4));
+console.log(sumFibs2(1000));
+console.log(sumFibs2(4000000));
+console.log(sumFibs2(1));
